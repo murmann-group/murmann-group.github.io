@@ -67,6 +67,7 @@ reCaptcha:
   siteKey                :
   secret                 :
 atom_feed:
+  hide                   : true
   path                   : # blank (default) uses feed.xml
 search                   : # true, false (default)
 search_full_content      : # true, false (default)
@@ -113,7 +114,7 @@ author:
   name             : " "
   avatar           : "/assets/images/Manoa_seal.png"
   bio              : 
-  location         :  " "
+  location         :  "Honolulu, HI"
   email            : "bmurmann@hawaii.edu"
   links:
     - label: "Email"
