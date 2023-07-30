@@ -4,4 +4,5 @@ subtitle:
 description: 
 ---
 
-![Book logo](/assets/images/retina_chip.png)
+![](/assets/images/retina_chip.png)
+*1024-Channel Brain-Computer Interface Chip [DOI](https://doi.org/10.23919/VLSITechnologyandCir57934.2023.10185288)*
