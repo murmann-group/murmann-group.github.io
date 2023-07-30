@@ -1,8 +1,7 @@
 ---
-title: Murmann Research Group
-subtitle: Test
-description: Test
+title: 
+subtitle: 
+description: 
 ---
 
-# Research Summary
 Under construction!
