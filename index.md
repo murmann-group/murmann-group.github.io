@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Murmann Group
+title: Murmann Research Group
 subtitle: Boris Murmann's Research Group at the University of Hawai'i
 description: The pages meta description
 permalink: /
