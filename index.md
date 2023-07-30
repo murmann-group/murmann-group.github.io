@@ -4,4 +4,4 @@ subtitle:
 description: 
 ---
 
-Under construction!
+![Book logo](/assets/images/retina_chip.png)
