@@ -21,7 +21,7 @@ minimal_mistakes_skin    : "default"
 locale                   : "en-US"
 title                    : "Murmann Research Group"
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+subtitle                 : "Mixed-Signal Integrated Circuit Design"
 name                     : "Boris Murmann"
 description              : " "
 url                      : "https://murmann-group.github.io"
