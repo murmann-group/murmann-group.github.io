@@ -110,8 +110,8 @@ analytics:
 
 # Site Author
 author:
-  name             : ""
-  avatar           : #"/assets/images/Manoa seal.png"
+  name             : "xxx"
+  avatar           : "/assets/images/Manoa_seal.png"
   bio              : 
   location         :  
   email            : "bmurmann@hawaii.edu"
