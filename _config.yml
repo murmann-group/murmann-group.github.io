@@ -110,10 +110,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Boris Murmann"
-  avatar           : #"/assets/images/SSCS_logo.jpg"
+  name             : ""
+  avatar           : "/assets/images/Manoa seal.png"
   bio              : ""
-  location         :  
+  location         : "" 
   email            : "bmurmann@hawaii.edu"
   links:
     - label: "Email"
