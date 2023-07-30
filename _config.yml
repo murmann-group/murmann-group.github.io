@@ -23,7 +23,7 @@ title                    : "Murmann Research Group"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Boris Murmann"
-description              : "xxx"
+description              : " "
 url                      : "https://murmann-group.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "murmann-group/murmann-group.github.io"
@@ -110,10 +110,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "xxx"
+  name             : " "
   avatar           : "/assets/images/Manoa_seal.png"
   bio              : 
-  location         :  
+  location         :  " "
   email            : "bmurmann@hawaii.edu"
   links:
     - label: "Email"
