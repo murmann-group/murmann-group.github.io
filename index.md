@@ -1,7 +1,7 @@
 ---
 title: 
 subtitle: 
-description: 
+description:
 ---
 
 ![](/assets/images/retina_chip.png)

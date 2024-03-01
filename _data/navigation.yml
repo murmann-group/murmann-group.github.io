@@ -1,0 +1,12 @@
+main:
+  - title: Research
+    url: /
+
+  - title: Publications
+    url: /publications
+
+  - title: People
+    url: /people/
+
+  - title: Contact
+    url: /contact/
