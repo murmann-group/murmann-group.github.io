@@ -1,31 +1,61 @@
 ---
-layout: single
+layout: splash
 title: People
 permalink: /people/
 ---
 
-## Principal Investigator
+<style>
+img{
+    clear: left;
+    float: left;
+    margin-top: 2em;
+    margin-right: 1em;
+    border-radius: 5%;
+}
+</style>
 
-### Boris Murmann
-
-![Boris Murmann](/assets/images/people/boris_murmann.jpg)
-
-Boris Murmann is the Principal Investigator of the research group. He is a renowned expert in the field of [insert field of expertise]. He received his [insert degrees and affiliations]. His research interests include [insert research interests].
+<!-- Start a person -->
+<img src="/assets/images/people/boris_murmann.jpg" width="150" height="200">
+<p style="padding-top: 0.2em;"></p>
+<span style="font-weight: bold; font-size: 1.2em;"> Boris Murmann </span>
+<p style="font-size: 0.9em;"> Boris Murmann is the Principal Investigator of the research group. He is a renowned expert in the field of [insert field of expertise]. He received his [insert degrees and affiliations]. His research interests include [insert research interests]. </p>
+<br style="clear:both" />
+<!-- Finished a person -->
 
 ## Graduate Students
 
-### Vikas Kumar
-
-![Vikas Kumar](/assets/images/people/vikas_kumar.jpg)
+<!-- Start a person -->
+<img src="/assets/images/people/vikas_kumar.jpg" width="150" height="200">
+<p style="padding-top: 2em;"></p>
+<span style="font-weight: bold; font-size: 1.2em;"> Vikas Kumar </span><br>
+<span style="font-weight: bold; font-size: 1.0em;"> 1/2024 - Present </span>
+<br style="clear:both" />
+<!-- Finished a person -->
 
 ## Undergraduate Researchers
 
-### Andrea Murillo
-
-![Andrea Murillo](/assets/images/people/andrea_murillo.jpg)
+<!-- Start a person -->
+<img src="/assets/images/people/andrea_murillo.jpg" width="150" height="200">
+<p style="padding-top: 2em;"></p>
+<span style="font-weight: bold; font-size: 1.2em;"> Andrea Murillo </span><br>
+<span style="font-weight: bold; font-size: 1.0em;"> ? - Present </span>
+<br style="clear:both" />
+<!-- Finished a person -->
 
 ## Postdoctoral Researchers
 
-### Calvin Lee
+<!-- Start a person -->
+<img src="/assets/images/people/aera_jung.jpg" width="150" height="200">
+<p style="padding-top: 2em;"></p>
+<span style="font-weight: bold; font-size: 1.2em;"> Aera Jung </span><br>
+<span style="font-weight: bold; font-size: 1.0em;"> ? - Present </span>
+<br style="clear:both" />
+<!-- Finished a person -->
 
-![Calvin Lee](/assets/images/people/calvin_lee.jpg)
+<!-- Start a person -->
+<img src="/assets/images/people/calvin_lee.jpg" width="150" height="200">
+<p style="padding-top: 2em;"></p>
+<span style="font-weight: bold; font-size: 1.2em;"> Calvin Lee </span><br>
+<span style="font-weight: bold; font-size: 1.0em;"> 2/2024 - Present </span>
+<br style="clear:both" />
+<!-- Finished a person -->
