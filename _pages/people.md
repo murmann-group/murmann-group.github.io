@@ -45,7 +45,14 @@ img{
 ## Postdoctoral Researchers
 
 <!-- Start a person -->
-<img src="/assets/images/people/aera_jung.jpg" width="150" height="200">
+<img alt="" src="/assets/images/people/aera_jung0.jpg" width="150" height="200" id="imgClickAndChange" onclick="changeImage()"   />
+<script language="javascript">
+    var imgTag = 0;
+    function changeImage() {
+        imgTag = (++imgTag % 2);
+        document.getElementById("imgClickAndChange").src = "/assets/images/people/aera_jung"+imgTag+".jpg";
+    }
+</script>
 <p style="padding-top: 2em;"></p>
 <span style="font-weight: bold; font-size: 1.2em;"> Aera Jung </span><br>
 <span style="font-weight: bold; font-size: 1.0em;"> ? - Present </span>
