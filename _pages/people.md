@@ -41,7 +41,7 @@ He received the Dipl.-Ing. (FH) degree in communications engineering from Fachho
 <img src="/assets/images/people/andrea_murillo.jpg" width="150" height="200">
 <p style="padding-top: 2em;"></p>
 <span style="font-weight: bold; font-size: 1.2em;"> Andrea Murillo </span><br>
-<span style="font-weight: bold; font-size: 1.0em;"> ? - Present </span>
+<span style="font-weight: bold; font-size: 1.0em;"> 8/2023 - Present </span>
 <br style="clear:both" />
 <!-- Finished a person -->
 
