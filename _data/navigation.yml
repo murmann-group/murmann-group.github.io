@@ -2,11 +2,15 @@ main:
   - title: Research
     url: /
 
-  - title: Publications
-    url: /publications
+# Commented out until publication page is ready to be posted
+  # - title: Publications
+  #   url: /publications
 
   - title: People
     url: /people/
+
+  - title: Teaching
+    url: /teaching/
 
   - title: Contact
     url: /contact/
