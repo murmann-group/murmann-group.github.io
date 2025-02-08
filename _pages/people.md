@@ -18,9 +18,7 @@ img{
 ## Principal Investigator
 <img src="/assets/images/people/boris_murmann.jpg" width="150" height="200">
 <p style="padding-top: 0.1em;"></p>
-<p style="font-size: 0.8em;"> Boris Murmann is currently a Professor of Electrical & Computer Engineering at the University of Hawaiʻi, Mānoa. 
-He received the Dipl.-Ing. (FH) degree in communications engineering from Fachhochschule Dieburg, Dieburg, Germany, in 1994, the M.S. degree in electrical engineering from Santa Clara University, Santa Clara, CA, in 1999, and the Ph.D. degree in electrical engineering from the University of California at Berkeley, Berkeley, CA, in 2003. Prior to joining the University of Hawaiʻi, he served as an assistant, associate and full professor in the Department of Electrical Engineering at Stanford University, Stanford, CA, from 2004 to 2023.</p>
-<p style="font-size: 0.8em;"> Professor Murmann's research interests are in the area of mixed-signal integrated circuit design. Specific topics include sensor interfaces, A/D and D/A conversion, high-speed communication links, embedded machine learning (tinyML) as well as open-source chip design.</p>
+<p style="font-size: 0.8em;"> Dr. Murmann joined the University of Hawaiʻi at Mānoa in 2023. He is a Professor in the Department of Electrical and Computer Engineering and a Cooperating Graduate Faculty Member in the Department of Department of Physics and Astronomy. Prior to joining UH, he served as an assistant, associate and full professor in the Department of Electrical Engineering at Stanford University from 2004 to 2023. From 1994 to 1997, he was with Neutron Microelectronics, Hanau, Germany, where he developed full-custom CMOS ASICs. Since 2004, he has worked as a consultant with numerous Silicon Valley companies.</p>
 <br style="clear:both" />
 <!-- Finished a person -->
 

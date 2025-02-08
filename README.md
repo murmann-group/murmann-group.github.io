@@ -2,4 +2,4 @@
 
 Website link: [https://murmann-group.github.io](https://murmann-group.github.io)
 
-Last updated by Calvin Lee on March 8th, 2024
+Last updated by Boris Murmann on February 8, 2025.
