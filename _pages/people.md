@@ -18,7 +18,7 @@ img{
 ## Principal Investigator
 <img src="/assets/images/people/boris_murmann.jpg" width="150" height="200">
 <p style="padding-top: 0.1em;"></p>
-<p style="font-size: 0.8em;"> Dr. Murmann joined the University of Hawaiʻi at Mānoa in 2023. He is a Professor in the Department of Electrical and Computer Engineering and a Cooperating Graduate Faculty Member in the Department of Department of Physics and Astronomy. Prior to joining UH, he served as an assistant, associate and full professor in the Department of Electrical Engineering at Stanford University from 2004 to 2023. From 1994 to 1997, he was with Neutron Microelectronics, Hanau, Germany, where he developed full-custom CMOS ASICs. Since 2004, he has worked as a consultant with numerous Silicon Valley companies.</p>
+<p style="font-size: 0.8em;"> Dr. Murmann joined the University of Hawaiʻi at Mānoa in 2023. He is a Professor in the Department of Electrical and Computer Engineering and a Cooperating Graduate Faculty Member in the Department of Physics and Astronomy. Prior to joining UH, he served as an assistant, associate and full professor in the Department of Electrical Engineering at Stanford University from 2004 to 2023. From 1994 to 1997, he was with Neutron Microelectronics, Hanau, Germany, where he developed full-custom CMOS ASICs. Since 2004, he has worked as a consultant with numerous Silicon Valley companies.</p>
 <br style="clear:both" />
 <!-- Finished a person -->
 
