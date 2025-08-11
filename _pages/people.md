@@ -33,6 +33,15 @@ img{
 <br style="clear:both" />
 <!-- Finished a person -->
 
+<!-- Start a person -->
+<img src="/assets/images/people/milan_bukovics.jpg" width="150" height="200">
+<p style="padding-top: 2em;"></p>
+<span style="font-weight: bold; font-size: 1.2em;"> Milan Bukovics </span><br>
+<span style="font-weight: bold; font-size: 1.0em;"> MS Student </span><br>
+<span style="font-weight: bold; font-size: 1.0em;"> 8/2025 - Present </span>
+<br style="clear:both" />
+<!-- Finished a person -->
+
 ## Undergraduate Researchers
 
 <!-- Start a person -->
