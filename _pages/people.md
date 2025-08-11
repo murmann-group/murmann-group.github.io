@@ -38,7 +38,7 @@ img{
 <p style="padding-top: 2em;"></p>
 <span style="font-weight: bold; font-size: 1.2em;"> Milan Bukovics </span><br>
 <span style="font-weight: bold; font-size: 1.0em;"> MS Student </span><br>
-<span style="font-weight: bold; font-size: 1.0em;"> 8/2025 - Present </span>
+<span style="font-weight: bold; font-size: 1.0em;"> 9/2024 - Present </span>
 <br style="clear:both" />
 <!-- Finished a person -->
 
