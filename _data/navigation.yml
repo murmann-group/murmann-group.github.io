@@ -11,6 +11,9 @@ main:
 
   - title: Teaching
     url: /teaching/
+    
+  - title: Chip Gallery
+    url: /gallery/
 
   - title: Contact
     url: /contact/
