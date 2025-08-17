@@ -19,6 +19,22 @@ permalink: /gallery/
     height: 400px;
 }
 
+.chip-image-container {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chip-caption {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #666;
+    text-align: center;
+    margin-top: 0.5em;
+    max-width: 400px;
+}
+
 .chip-content-section {
     flex: 1;
     min-width: 0;
@@ -62,7 +78,10 @@ permalink: /gallery/
 ## 2024
 
 <div class="chip-entry">
-    <img src="/assets/images/chips/2024_ECE628/628ChipFullSize.jpg" class="chip-main-image" id="chipClickAndChange" onclick="changeChipImage()">
+    <div class="chip-image-container">
+        <img src="/assets/images/chips/2024_ECE628/628ChipFullSize.jpg" class="chip-main-image" id="chipClickAndChange" onclick="changeChipImage()">
+        <div class="chip-caption" id="chipCaption">Click me!</div>
+    </div>
     <script language="javascript">
         var chipImgTag = 0;
         function changeChipImage() {
