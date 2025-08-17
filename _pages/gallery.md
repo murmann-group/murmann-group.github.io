@@ -62,7 +62,22 @@ permalink: /gallery/
 ## 2024
 
 <div class="chip-entry">
-    <img src="/assets/images/chips/2024_ECE628/628ChipFullSize.jpg" class="chip-main-image">
+    <img src="/assets/images/chips/2024_ECE628/628ChipFullSize.jpg" class="chip-main-image" id="chipClickAndChange" onclick="changeChipImage()">
+    <script language="javascript">
+        var chipImgTag = 0;
+        function changeChipImage() {
+            chipImgTag = (++chipImgTag % 3);
+            var imageName;
+            if (chipImgTag === 0) {
+                imageName = "628ChipFullSize";
+            } else if (chipImgTag === 1) {
+                imageName = "628Chip";
+            } else {
+                imageName = "628Layout";
+            }
+            document.getElementById("chipClickAndChange").src = "/assets/images/chips/2024_ECE628/" + imageName + ".jpg";
+        }
+    </script>
     
     <div class="chip-content-section">
         <div class="chip-title">ECE 628 - Spring 2024</div>
