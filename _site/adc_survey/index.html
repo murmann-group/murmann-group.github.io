@@ -250,7 +250,7 @@
 }
 </style>
 
-<h2 id="adc-performance-survey">ADC Performance Survey</h2>
+<h2 id="adc-performance-survey-envelope-calculator">ADC Performance Survey Envelope Calculator</h2>
 
 <!-- Calculation Mode Selection - spans full width -->
 <div class="calc-selection">
@@ -445,7 +445,7 @@ function updateCalculation() {
         let result = 2 * power * Math.pow(10, (fomsDbAsymp - sndr) / 10);
         for (let i = 0; i < 20; i++) {
             const f = calculateFOMS(result, fCorner, fomsDbAsymp) - sndr - 10 * Math.log10(result / 2 / power);
-            const df = -20 / Math.LN10 * result / (Math.pow(fCorner, 2) + Math.pow(result, 2)) - 10 / Math.LN10 / result;
+            const df = -10 / Math.LN10 * result / (Math.pow(fCorner, 2) + Math.pow(result, 2)) - 10 / Math.LN10 / result;
             if (Math.abs(f) < 1e-12 || Math.abs(df) < 1e-15) break;
             const newResult = result - f / df;
             result = newResult > 0 ? newResult : result / 2;
@@ -457,7 +457,7 @@ function updateCalculation() {
 }
 
 // Helper functions
-const calculateFOMS = (fsNyq, fCorner, fomsDbAsymp) => fomsDbAsymp - 10 * Math.log10(1 + Math.pow(fsNyq / fCorner, 2));
+const calculateFOMS = (fsNyq, fCorner, fomsDbAsymp) => fomsDbAsymp - 10 * Math.log10(Math.pow(1 + Math.pow(fsNyq / fCorner, 2), 1/2));
 const areInputsValid = (sndr, fsNyquist, power = null) => sndr > 0 && fsNyquist > 0 && (power === null || power > 0);
 const isFomsDataReady = () => Object.keys(fomsData).length > 0 && fomsData["foms_db_asymp"] && fomsData["f_corner"];
 </script>
