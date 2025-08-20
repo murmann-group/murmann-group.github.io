@@ -223,6 +223,7 @@
     flex-direction: row;
     gap: 1em;
     align-items: baseline;
+    justify-content: space-between;
     margin-bottom: 1em;
     padding: 0.8em 1.5em;
     border: 1px solid #ddd;
@@ -248,6 +249,64 @@
     outline: none;
     border-color: #007acc;
 }
+
+.fom-slider-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: baseline;
+    margin: 0;
+    margin-left: auto;
+}
+
+.fom-slider-label {
+    font-weight: bold;
+    font-size: 1em;
+    color: #333;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.fom-slider {
+    width: 150px;
+    height: 6px;
+    border-radius: 3px;
+    background: #ddd;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.fom-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #007acc;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.fom-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #007acc;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.fom-value-display {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+    min-width: 80px;
+    width: 80px;
+    text-align: center;
+}
 </style>
 
 <h2 id="adc-performance-survey-envelope-calculator">ADC Performance Survey Envelope Calculator</h2>
@@ -260,6 +319,12 @@
         <option value="sndr">SNDR</option>
         <option value="fs">FsNyq</option>
     </select>
+    
+    <div class="fom-slider-container">
+        <label class="fom-slider-label">FOM Adjustment:</label>
+        <input type="range" id="fomSlider" class="fom-slider" min="-6" max="0" step="0.5" value="-3" oninput="updateFomDisplay(); updateCalculation()" />
+        <span id="fomValue" class="fom-value-display">-3.0 dB</span>
+    </div>
 </div>
 
 <div class="survey-container">
@@ -373,6 +438,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the interface for the default mode
     updateInterface();
     
+    // Initialize FOM slider display
+    updateFomDisplay();
+    
     // Your existing input field logic
     const inputs = document.querySelectorAll('.input-field');
     inputs.forEach(input => {
@@ -390,6 +458,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+function updateFomDisplay() {
+    const slider = document.getElementById('fomSlider');
+    const display = document.getElementById('fomValue');
+    const value = parseFloat(slider.value);
+    display.textContent = `${value.toFixed(1)} dB`;
+}
 
 function updateInterface() {
     const modes = {
@@ -423,6 +498,7 @@ function updateCalculation() {
     
     const mode = document.getElementById('calcMode').value;
     const [sndr, fsNyq, power] = [getVal('input1'), getVal('input2'), getVal('input3')];
+    const fomAdjustment = parseFloat(document.getElementById('fomSlider').value);
     
     if (!isFomsDataReady()) return setResult(`${mode === 'power' ? 'Power' : mode === 'sndr' ? 'SNDR' : 'FsNyq'}: Waiting for data...`, 'FOMS: Waiting for data...');
     
@@ -430,13 +506,13 @@ function updateCalculation() {
     
     if (mode === 'power') {
         if (!areInputsValid(sndr, fsNyq)) return setResult('Power: Invalid inputs (SNDR and FsNyq must be > 0)', 'FOMS: Invalid inputs');
-        const foms = calculateFOMS(fsNyq, fCorner, fomsDbAsymp);
+        const foms = calculateFOMS(fsNyq, fCorner, fomsDbAsymp, fomAdjustment);
         const result = fsNyq / 2 / Math.pow(10, (foms - sndr) / 10);
         setResult(`Power: ${formatEngineering(result, 'W')}`, `FOMS: ${foms.toFixed(2)} dB`);
         document.getElementById('input3').value = result.toString();
     } else if (mode === 'sndr') {
         if (fsNyq <= 0 || power <= 0) return setResult('SNDR: Invalid inputs (FsNyq and Power must be > 0)', 'FOMS: Invalid inputs');
-        const foms = calculateFOMS(fsNyq, fCorner, fomsDbAsymp);
+        const foms = calculateFOMS(fsNyq, fCorner, fomsDbAsymp, fomAdjustment);
         const result = foms - 10 * Math.log10(fsNyq / 2 / power);
         setResult(`SNDR: ${result.toFixed(2)} dB`, `FOMS: ${foms.toFixed(2)} dB`);
         document.getElementById('input1').value = result.toString();
@@ -444,20 +520,20 @@ function updateCalculation() {
         if (!areInputsValid(sndr, 1, power)) return setResult('FsNyq: Invalid inputs (SNDR and Power must be > 0)', 'FOMS: Invalid inputs');
         let result = 2 * power * Math.pow(10, (fomsDbAsymp - sndr) / 10);
         for (let i = 0; i < 20; i++) {
-            const f = calculateFOMS(result, fCorner, fomsDbAsymp) - sndr - 10 * Math.log10(result / 2 / power);
+            const f = calculateFOMS(result, fCorner, fomsDbAsymp, fomAdjustment) - sndr - 10 * Math.log10(result / 2 / power);
             const df = -10 / Math.LN10 * result / (Math.pow(fCorner, 2) + Math.pow(result, 2)) - 10 / Math.LN10 / result;
             if (Math.abs(f) < 1e-12 || Math.abs(df) < 1e-15) break;
             const newResult = result - f / df;
             result = newResult > 0 ? newResult : result / 2;
         }
-        const foms = calculateFOMS(result, fCorner, fomsDbAsymp);
+        const foms = calculateFOMS(result, fCorner, fomsDbAsymp, fomAdjustment);
         setResult(`FsNyq: ${formatEngineering(result, 'Hz')}`, `FOMS: ${foms.toFixed(2)} dB`);
         document.getElementById('input2').value = result.toString();
     }
 }
 
 // Helper functions
-const calculateFOMS = (fsNyq, fCorner, fomsDbAsymp) => fomsDbAsymp - 10 * Math.log10(Math.pow(1 + Math.pow(fsNyq / fCorner, 2), 1/2));
+const calculateFOMS = (fsNyq, fCorner, fomsDbAsymp, fomAdjustment = 0) => fomsDbAsymp - 10 * Math.log10(Math.pow(1 + Math.pow(fsNyq / fCorner, 2), 1/2)) + fomAdjustment;
 const areInputsValid = (sndr, fsNyquist, power = null) => sndr > 0 && fsNyquist > 0 && (power === null || power > 0);
 const isFomsDataReady = () => Object.keys(fomsData).length > 0 && fomsData["foms_db_asymp"] && fomsData["f_corner"];
 </script>
