@@ -177,7 +177,7 @@ permalink: /adc_survey/
     </select>
     
     <div class="fom-slider-container">
-        <label class="fom-slider-label">DC FOM Adjustment:</label>
+        <label class="fom-slider-label">Envelope Adjustment:</label>
         <input type="range" id="fomSlider" class="fom-slider" min="-6" max="0" step="0.5" value="-3" oninput="updateFomDisplay(); updateCalculation()">
         <span id="fomValue" class="fom-value-display">-3.0 dB</span>
     </div>
