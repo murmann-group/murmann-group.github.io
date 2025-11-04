@@ -140,6 +140,9 @@ author:
     - label: "ADC Survey Calculator"
       icon: "fa fa-calculator"
       url: "/adc_survey/"
+    - label: "Layout Tips"
+      icon: "fa-solid fa-layer-group"
+      url: "/layout_tips/"
 
 # Site Footer
 footer:

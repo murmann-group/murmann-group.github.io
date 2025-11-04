@@ -1,0 +1,594 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Layout Tips - Murmann Research Group</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content=" ">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Murmann Research Group">
+<meta property="og:title" content="Layout Tips">
+<meta property="og:url" content="http://localhost:4000/layout_tips/">
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/layout_tips/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Boris Murmann",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--splash wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Murmann Research Group
+          <span class="site-subtitle">Mixed-Signal Integrated Circuit Design</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">Research</a>
+            </li><li class="masthead__menu-item">
+              <a href="/people/">People</a>
+            </li><li class="masthead__menu-item">
+              <a href="/teaching/">Teaching</a>
+            </li><li class="masthead__menu-item">
+              <a href="/gallery/">Chip Gallery</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contact/">Contact</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+<div id="main" role="main">
+  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Layout Tips">
+    
+    
+    
+
+    <section class="page__content" itemprop="text">
+      <style>
+/* Header section that will be used to calculate dynamic offset */
+.page-header {
+    position: relative;
+    z-index: 1;
+}
+
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    margin: 2em 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+.content-area {
+    flex: 1;
+    background-color: white;
+}
+
+.collapsible-section {
+    border-bottom: 1px solid #ddd;
+}
+
+.section-header {
+    background-color: #f1f3f4;
+    padding: 1em 2em;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    scroll-margin-top: 20px; /* Simple scroll positioning */
+}
+
+.section-header:hover {
+    background-color: #e8eaed;
+}
+
+.section-header.active {
+    background-color: #007acc;
+    color: white;
+}
+
+.section-icon {
+    font-size: 1.4em;
+    transition: transform 0.3s ease;
+    color: #666;
+}
+
+.section-header.active .section-icon {
+    color: white;
+    transform: rotate(180deg);
+}
+
+.section-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    background-color: white;
+}
+
+.section-content.active {
+    max-height: 1000px;
+}
+
+.content-inner {
+    display: flex;
+    padding: 1.6em;
+    gap: 2em;
+    align-items: flex-start;
+}
+
+.gif-container {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+}
+
+.gif-container img,
+.gif-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+}
+
+.text-container {
+    flex: 1;
+    color: #444;
+    line-height: 1.6;
+}
+
+.text-container h4 {
+    margin: 0 0 1em 0;
+    color: #333;
+    font-size: 1.3em;
+}
+
+.text-container p {
+    margin-bottom: 1em;
+}
+
+.text-container ul {
+    padding-left: 1.5em;
+}
+
+.text-container li {
+    margin-bottom: 0.5em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .content-inner {
+        flex-direction: column;
+    }
+    
+    .gif-container {
+        flex: none;
+        max-width: 100%;
+    }
+}
+</style>
+
+<h2 id="layout-tips">Layout Tips</h2>
+
+<div class="layout-container">
+    <div class="content-area" id="content-area">
+        <!-- Sections will be generated by JavaScript -->
+    </div>
+</div>
+
+<script>
+// Section data - modify page content here
+const sectionData = [
+    {
+        id: 'via',
+        title: 'Via Creation',
+        menuTitle: 'Via Creation',
+        imageUrl: '/assets/videos/layout_tips/via.mov',
+        imageAlt: 'Via Tool Demo',
+        contentTitle: '5 Ways to Create Vias',
+        description: '"O" is the default keybind for the via tool. "F3" will open the configuration menu.',
+        listItems: [
+            '<strong>Single:</strong> Default single-transition via creation mode.',
+            '<strong>Array (Row/Col):</strong> Specify an array of vias to lower resistance from metal layer transitions.',
+            '<strong>Dimension (Width/Height):</strong> Specify dimensions instead of array when an exact dimension is desired.',
+            '<strong>Stacking:</strong> Useful for multi-level transitions and coaxial shield walls.',
+            '<strong>Auto Via:</strong> Fast entry mode for multi-layer with maximum via counts.'
+        ],
+        conclusion: ''
+    },
+    {
+        id: 'groups',
+        title: 'Groups',
+        menuTitle: 'Groups',
+        imageUrl: '/assets/videos/layout_tips/groups.mov',
+        imageAlt: 'Groups',
+        contentTitle: 'Organize Your Layout',
+        description: 'Groups are useful to isolate objects from the active editable layer. Groups can help prevent unintentional modifications and enables organization when working with dense designs. Applied with Create -> Group in the menu bar.',
+        listItems: [
+            '<strong>Group Translation:</strong> Once grouped, objects can be moved together as a single object.',
+            '<strong>Descend Edit in Place:</strong> "X" is used to move inside of the group for editing.',
+            '<strong>Synchronous Copy:</strong> When copying groups, synchronous copy can be used to synchronize edits on one group with other synchronous copies.',
+            '<strong>Transparent groups:</strong> Warning! The "Transparent Groups" option allows modification of the group without descending inside.'
+        ],
+        conclusion: ''
+    },
+    {
+        id: 'dimming',
+        title: 'Dimming',
+        menuTitle: 'Dimming',
+        imageUrl: '/assets/videos/layout_tips/dimming.mov',
+        imageAlt: 'Dimming Demo',
+        contentTitle: 'Improve Object Visibility',
+        description: 'Dims unselected objects to improve contrast against selected objects.',
+        listItems: [
+            '<strong>Enable:</strong> Options -> Display -> Enable Dimming',
+            '<strong>All deselected:</strong> When all objects are deselected ("Ctrl+D"), all objects will appear with full brightness.'
+        ],
+        conclusion: ''
+    },
+    {
+        id: 'drag',
+        title: 'Disable Drag',
+        menuTitle: 'Disable Drag',
+        imageUrl: '/assets/videos/layout_tips/disable_drag.mov',
+        imageAlt: 'Disable Drag Demo',
+        contentTitle: 'Prevent Accidental Object Movement',
+        description: 'Occasionally when box-selecting objects, the mouse will grab the drag handle of an object and reposition the object to a new location. Disable this behavior by rebinding mouse select behavior.',
+        listItems: [
+            '<strong>In CIW:</strong> <i>hiSetBindKey("Layout" "&ltDrawthru1&gt" "geSingleSelectBox()")</i>',
+            '<strong>Enable by default:</strong> Add to .cdsinit to automatically execute this rebinding by default when opening Virtuoso.'
+        ],
+        conclusion: 'Objects can no longer be dragged with mouse click. Other drag modes such as "M" and "S" will still function as normal.'
+    },
+    {
+        id: 'chop',
+        title: 'Chop Tool',
+        menuTitle: 'Chop Tool',
+        imageUrl: '/assets/videos/layout_tips/chop.mov',
+        imageAlt: 'Chop Tool Demo',
+        contentTitle: 'CHOP!',
+        description: 'Quickly modify polygons and paths with "SHIFT+C".',
+        listItems: [
+            '<strong>Holes:</strong> Create holes in metal layers such as ones used for shields.',
+            '<strong>Cutouts:</strong> Create cutouts for shielded conduit connections or when extra object spacing is needed.',
+            '<strong>Splitting:</strong> Generate multiple polygon or path segments from a single drawn object. Useful for metal jogging.',
+            '<strong>Vias and Paths:</strong> Chopping can also be used for via arrays to automatically create DRC compliant splits.',
+            '<strong>Slap Chop:</strong> <a href="https://www.youtube.com/watch?v=FqWgTM4di4s">YouTube</a>'
+        ],
+        conclusion: ''
+    },
+    {
+        id: 'quick-align',
+        title: 'Quick Align Tool',
+        menuTitle: 'Quick Align Tool',
+        imageUrl: '/assets/videos/layout_tips/quick_align.mov',
+        imageAlt: 'Quick Align Demo',
+        contentTitle: 'Pixel Perfect Alignment',
+        description: 'Stop zooming and stretching for pixel accuracy. Quickly space and align layout objects while reducing the chances of DRC violations.',
+        listItems: [
+            '<strong>Snap Target:</strong> "Edge" mode is preferred for moving and resizing polygons, paths, and instances.',
+            '<strong>Offset:</strong> Offsets should be utilized to create exact spacing between objects. Useful for DRC compliance and reducing coupling.'
+        ],
+        conclusion: ''
+    },
+    {
+        id: 'router',
+        title: 'Routing Tool',
+        menuTitle: 'Routing Tool',
+        imageUrl: '/assets/videos/layout_tips/router.mov',
+        imageAlt: 'Router Demo',
+        contentTitle: 'Faster Routing with Paths',
+        description: 'Create wires and busses as path objects.',
+        listItems: [
+            '<strong>Ctrl + Shift + W:</strong> Single path routes with defined width.',
+            '<strong>Ctrl + Shift + X:</strong> Multi-path busses with defined width and spacing.',
+            '<strong>Ctrl + Shift + Q:</strong> While drawing paths, move up one layer.',
+            '<strong>Ctrl + Shift + A:</strong> While drawing paths, move down one layer.',
+            '<strong>Property Menu:</strong> Use "F3" to view wire and bus properties.'
+        ],
+        conclusion: 'While wire and bus creation can be a useful feature, the use of single vias for layer transitions are not recommended when multi-via is preferred.'
+    },
+    {
+        id: 'altsequence',
+        title: 'Menu Alt-Sequencing',
+        menuTitle: 'Menu Alt-Sequencing',
+        imageUrl: '/assets/videos/layout_tips/alt_sequence.mov',
+        imageAlt: 'Alt Sequence Demo',
+        contentTitle: 'Access Menu Items with Keyboard Shortcuts',
+        description: 'Quickly access menu items which do not have defined keybinds.',
+        listItems: [
+            '<strong>Usage:</strong> "ALT+_" can be use to navigate through menu items.',
+            '<strong>Troubleshooting:</strong> <i>envGetVal("ui" "enableMenuShortcuts")</i> returns <i>t</i>.',
+            '<strong>Troubleshooting:</strong> Check that ALT key is transmitted to the VNC display if this functionality is not working.'
+        ],
+        conclusion: ''
+    }
+];
+
+// Generate sections dynamically
+function generateSections() {
+    const contentArea = document.getElementById('content-area');
+    
+    if (!contentArea) {
+        console.error('Content area not found!');
+        return;
+    }
+    
+    console.log('Found content area, generating', sectionData.length, 'sections');
+    
+    // Generate content sections
+    sectionData.forEach((section, index) => {
+        try {
+            const sectionDiv = document.createElement('div');
+            sectionDiv.className = 'collapsible-section';
+            
+            const listItemsHtml = section.listItems.map(item => `<li>${item}</li>`).join('');
+            
+            // Determine if we should use video or image
+            const isVideo = section.imageUrl.toLowerCase().endsWith('.mov') || 
+                          section.imageUrl.toLowerCase().endsWith('.mp4') || 
+                          section.imageUrl.toLowerCase().endsWith('.webm');
+            
+            const mediaHtml = isVideo ? 
+                `<video src="${section.imageUrl}" alt="${section.imageAlt}" autoplay loop muted playsinline></video>` :
+                `<img src="${section.imageUrl}" alt="${section.imageAlt}">`;
+            
+            sectionDiv.innerHTML = `
+                <button class="section-header" id="${section.id}" onclick="toggleSection('${section.id}')">
+                    <span>${section.title}</span>
+                    <span class="section-icon">▼</span>
+                </button>
+                <div class="section-content" id="${section.id}-content">
+                    <div class="content-inner">
+                        <div class="gif-container">
+                            ${mediaHtml}
+                        </div>
+                        <div class="text-container">
+                            <h4>${section.contentTitle}</h4>
+                            <p>${section.description}</p>
+                            <ul>
+                                ${listItemsHtml}
+                            </ul>
+                            <p>${section.conclusion}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            contentArea.appendChild(sectionDiv);
+            console.log('Generated section:', section.id);
+        } catch (error) {
+            console.error('Error generating section', index, ':', error);
+        }
+    });
+}
+
+let currentActiveSection = null;
+
+// Function called by section headers - toggles sections
+function toggleSection(sectionId) {
+    const header = document.getElementById(sectionId);
+    const content = document.getElementById(sectionId + '-content');
+    const icon = header.querySelector('.section-icon');
+    const isActive = content.classList.contains('active');
+    
+    if (isActive) {
+        // Close the section
+        closeSection(sectionId);
+    } else {
+        // Close any other section first
+        if (currentActiveSection && currentActiveSection !== sectionId) {
+            closeSection(currentActiveSection);
+        }
+        
+        // Open this section
+        header.classList.add('active');
+        content.classList.add('active');
+        icon.style.transform = 'rotate(180deg)';
+        currentActiveSection = sectionId;
+    }
+}
+
+// Helper function to close a section
+function closeSection(sectionId) {
+    const header = document.getElementById(sectionId);
+    const content = document.getElementById(sectionId + '-content');
+    const icon = header.querySelector('.section-icon');
+    
+    header.classList.remove('active');
+    content.classList.remove('active');
+    icon.style.transform = 'rotate(0deg)';
+    
+    if (currentActiveSection === sectionId) {
+        currentActiveSection = null;
+    }
+}
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Page loaded, generating sections...');
+    try {
+        // Generate sections from data
+        generateSections();
+        console.log('Sections generated successfully');
+    } catch (error) {
+        console.error('Error generating sections:', error);
+    }
+    
+    // Uncomment the line below to open the first section by default
+    // toggleSection('flexbox');
+});
+</script>
+
+
+    </section>
+  </article>
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Boris Murmann. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
