@@ -73,7 +73,45 @@ permalink: /gallery/
     display: table;
     clear: both;
 }
+
+.four-chip-gallery {
+    margin-bottom: 3em;
+}
+
+.four-chip-header {
+    margin-bottom: 2em;
+}
+
+.four-chip-images {
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+}
+
+.four-chip-images img {
+    width: calc(25% - 0.75em);
+    height: auto;
+    border-radius: 5%;
+}
 </style>
+
+## 2025
+
+<div class="four-chip-gallery">
+    <div class="four-chip-header">
+        <div class="chip-title">CEMiD Supported Test Chips - Spring 2025</div>
+        <div class="chip-description">SRAM and ADC Designs in TSMC 180 nm CMOS</div>
+        <div class="chip-names">
+            Andrea Murillo, Jaeden Chang, Calvin Lee, & Boris Murmann
+        </div>
+    </div>
+    <div class="four-chip-images">
+        <img src="/assets/images/chips/2025_Spring/sp25_25148.jpg">
+        <img src="/assets/images/chips/2025_Spring/sp25_25149.jpg">
+        <img src="/assets/images/chips/2025_Spring/sp25_25150.jpg">
+        <img src="/assets/images/chips/2025_Spring/sp25_25151.jpg">
+    </div>
+</div>
 
 ## 2024
 
@@ -100,7 +138,7 @@ permalink: /gallery/
     
     <div class="chip-content-section">
         <div class="chip-title">ECE 628 - Spring 2024</div>
-        <div class="chip-description">Design of an Inverter-Based Incremental Delta-Sigma Modulator in IHP's Open-Source 130-nm CMOS Technology</div>
+        <div class="chip-description">Design of an Inverter-Based Incremental Delta-Sigma Modulator in IHP's Open-Source 130 nm CMOS Technology</div>
         <div class="chip-names">
             Aftab Uzzaman, Andee Gary, Anthony Gasbarro, Bo Rasse, Brooke Maeda, Chase Urasaki, Denny Landica, Eliya Nakamura, Glan Manio, Jie Zhou, Jonathan Itokazu, Keith Maki, Matt Sahara, Matthew Kouchi, Maxwell Pauly, Osiel (Alex) Montoya, Ryan Taylor, Saige Dacuycuy, Shaun Corpuz, Vikas Kumar, Wannasa Setthapittayakul, Zion McDowell, & Calvin Lee
             <img src="/assets/images/chips/2024_ECE628/628Students.jpg" class="chip-secondary-image">
