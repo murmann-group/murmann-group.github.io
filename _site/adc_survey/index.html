@@ -307,6 +307,18 @@
     width: 80px;
     text-align: center;
 }
+
+.jitter-box {
+    padding: 0.75em 1em;
+    margin-top: 0.25em;
+}
+
+.jitter-title {
+    font-weight: bold;
+    font-size: 0.5em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
 </style>
 
 <h2 id="adc-performance-survey-envelope-calculator">ADC Performance Survey Envelope Calculator</h2>
@@ -363,6 +375,12 @@
         <div class="evaluation-field" id="resultField1">Power: Not calculated</div>
         
         <div class="evaluation-field" id="resultField2" style="border-color: #007bff; color: #007bff;">FOMS: Not calculated</div>
+
+        <div class="jitter-box" id="jitterBox">
+            <div class="jitter-title">Jitter requirement assuming SNR<sub>Jitter</sub> = SNDR + 3dB</div>
+            <div class="evaluation-field" id="jitterField1" style="border-color: #6f42c1; color: #6f42c1; font-size: 0.5em; margin-top: 0;">Input is a single tone at FsNyq/2: Not calculated</div>
+            <div class="evaluation-field" id="jitterField2" style="border-color: #6f42c1; color: #6f42c1; font-size: 0.5em;">Input is uniform spectrum from 0 to FsNyq/2: Not calculated</div>
+        </div>
     </div>
 </div>
 
@@ -494,7 +512,20 @@ function updateCalculation() {
     const setResult = (text1, text2) => {
         document.getElementById('resultField1').textContent = text1;
         document.getElementById('resultField2').textContent = text2;
+        clearJitter();
     };
+
+    function clearJitter() {
+        document.getElementById('jitterField1').textContent = 'Input is a single tone at FsNyq/2: Not calculated';
+        document.getElementById('jitterField2').textContent = 'Input is uniform spectrum from 0 to FsNyq/2: Not calculated';
+    }
+
+    function updateJitterDisplay(sndr, fsNyq) {
+        const jitter1 = calculateJitter1(fsNyq, sndr);
+        const jitter2 = calculateJitter2(fsNyq, sndr);
+        document.getElementById('jitterField1').textContent = `Input is a single tone at FsNyq/2: ${formatEngineering(jitter1, 's')}`;
+        document.getElementById('jitterField2').textContent = `Input is uniform spectrum from 0 to FsNyq/2: ${formatEngineering(jitter2, 's')}`;
+    }
     
     const mode = document.getElementById('calcMode').value;
     const [sndr, fsNyq, power] = [getVal('input1'), getVal('input2'), getVal('input3')];
@@ -510,12 +541,14 @@ function updateCalculation() {
         const result = fsNyq / 2 / Math.pow(10, (foms - sndr) / 10);
         setResult(`Power: ${formatEngineering(result, 'W')}`, `FOMS: ${foms.toFixed(2)} dB`);
         document.getElementById('input3').value = result.toString();
+        updateJitterDisplay(sndr, fsNyq);
     } else if (mode === 'sndr') {
         if (fsNyq <= 0 || power <= 0) return setResult('SNDR: Invalid inputs (FsNyq and Power must be > 0)', 'FOMS: Invalid inputs');
         const foms = calculateFOMS(fsNyq, fCorner, fomsDbAsymp, fomAdjustment);
         const result = foms - 10 * Math.log10(fsNyq / 2 / power);
         setResult(`SNDR: ${result.toFixed(2)} dB`, `FOMS: ${foms.toFixed(2)} dB`);
         document.getElementById('input1').value = result.toString();
+        updateJitterDisplay(result, fsNyq);
     } else { // fs mode
         if (!areInputsValid(sndr, 1, power)) return setResult('FsNyq: Invalid inputs (SNDR and Power must be > 0)', 'FOMS: Invalid inputs');
         let result = 2 * power * Math.pow(10, (fomsDbAsymp - sndr) / 10);
@@ -529,6 +562,7 @@ function updateCalculation() {
         const foms = calculateFOMS(result, fCorner, fomsDbAsymp, fomAdjustment);
         setResult(`FsNyq: ${formatEngineering(result, 'Hz')}`, `FOMS: ${foms.toFixed(2)} dB`);
         document.getElementById('input2').value = result.toString();
+        updateJitterDisplay(sndr, result);
     }
 }
 
@@ -536,6 +570,12 @@ function updateCalculation() {
 const calculateFOMS = (fsNyq, fCorner, fomsDbAsymp, fomAdjustment = 0) => fomsDbAsymp - 10 * Math.log10(Math.pow(1 + Math.pow(fsNyq / fCorner, 2), 1/2)) + fomAdjustment;
 const areInputsValid = (sndr, fsNyquist, power = null) => sndr > 0 && fsNyquist > 0 && (power === null || power > 0);
 const isFomsDataReady = () => Object.keys(fomsData).length > 0 && fomsData["foms_db_asymp"] && fomsData["f_corner"];
+
+// Jitter functions
+// - jitter1: input is a single tone at FsNyq/2
+const calculateJitter1 = (fsNyq, sndr) => Math.pow(2 * 3.14159 * fsNyq / 2 * Math.pow(10, (sndr+3)/20 ), -1)
+// - jitter2: input is a uniform spectrum from 0 to FsNyq/2
+const calculateJitter2 = (fsNyq, sndr) => Math.pow(3, 0.5) * calculateJitter1(fsNyq, sndr);
 </script>
 
 
@@ -576,7 +616,7 @@ const isFomsDataReady = () => Object.keys(fomsData).length > 0 && fomsData["foms
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 Boris Murmann. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2026 Boris Murmann. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
