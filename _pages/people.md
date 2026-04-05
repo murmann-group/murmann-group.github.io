@@ -76,3 +76,7 @@ img{
 <span style="font-weight: bold; font-size: 1.0em;"> 2/2024 - Present </span>
 <br style="clear:both" />
 <!-- Finished a person -->
+
+<p style="text-align: center; margin-top: 3em;">
+    <a href="/photos/" style="color: #999; font-size: 0.85em; text-decoration: none; letter-spacing: 0.05em;">Photos</a>
+</p>
