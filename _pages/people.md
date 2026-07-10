@@ -14,6 +14,12 @@ img{
 }
 </style>
 
+<p style="text-align: left; margin: 0.2em 0;">
+    <a href="/past_members/" style="color: #999; font-size: 0.85em; text-decoration: none; letter-spacing: 0.05em;">Past Members</a>
+    <span style="display: inline-block; width: 2em;"></span>
+    <a href="/photos/" style="color: #999; font-size: 0.85em; text-decoration: none; letter-spacing: 0.05em;">Photos</a>
+</p>
+
 <!-- Start the most important person -->
 ## Principal Investigator
 <img src="/assets/images/people/boris_murmann.jpg" width="150" height="200">
@@ -33,24 +39,8 @@ img{
 <br style="clear:both" />
 <!-- Finished a person -->
 
-<!-- Start a person -->
-<img src="/assets/images/people/milan_bukovics.jpg" width="150" height="200">
-<p style="padding-top: 2em;"></p>
-<span style="font-weight: bold; font-size: 1.2em;"> Milan Bukovics </span><br>
-<span style="font-weight: bold; font-size: 1.0em;"> MS Student </span><br>
-<span style="font-weight: bold; font-size: 1.0em;"> 9/2024 - Present </span>
-<br style="clear:both" />
-<!-- Finished a person -->
 
-## Undergraduate Researchers
-
-<!-- Start a person -->
-<img src="/assets/images/people/andrea_murillo.jpg" width="150" height="200">
-<p style="padding-top: 2em;"></p>
-<span style="font-weight: bold; font-size: 1.2em;"> Andrea Murillo </span><br>
-<span style="font-weight: bold; font-size: 1.0em;"> 8/2023 - Present </span>
-<br style="clear:both" />
-<!-- Finished a person -->
+<!-- ## Undergraduate Researchers -->
 
 ## Postdoctoral Researchers
 
@@ -76,7 +66,3 @@ img{
 <span style="font-weight: bold; font-size: 1.0em;"> 2/2024 - Present </span>
 <br style="clear:both" />
 <!-- Finished a person -->
-
-<p style="text-align: center; margin-top: 3em;">
-    <a href="/photos/" style="color: #999; font-size: 0.85em; text-decoration: none; letter-spacing: 0.05em;">Photos</a>
-</p>
