@@ -31,10 +31,28 @@ img{
 ## Graduate Students
 
 <!-- Start a person -->
+<img src="/assets/images/people/yuan_ma.jpg" width="150" height="200">
+<p style="padding-top: 2em;"></p>
+<span style="font-weight: bold; font-size: 1.2em;"> Yuan Ma </span><br>
+<span style="font-weight: bold; font-size: 1.0em;"> PhD Student </span><br>
+<span style="font-weight: bold; font-size: 1.0em;"> 8/2026 - Present </span>
+<br style="clear:both" />
+<!-- Finished a person -->
+
+<!-- Start a person -->
+<img src="/assets/images/people/ashtar_aggelopoulos.jpg" width="150" height="200">
+<p style="padding-top: 2em;"></p>
+<span style="font-weight: bold; font-size: 1.2em;"> Ashtar Aggelopoulos </span><br>
+<span style="font-weight: bold; font-size: 1.0em;"> MS Student </span><br>
+<span style="font-weight: bold; font-size: 1.0em;"> 5/2026 - Present </span>
+<br style="clear:both" />
+<!-- Finished a person -->
+
+<!-- Start a person -->
 <img src="/assets/images/people/vikas_kumar.jpg" width="150" height="200">
 <p style="padding-top: 2em;"></p>
 <span style="font-weight: bold; font-size: 1.2em;"> Vikas Kumar </span><br>
-<span style="font-weight: bold; font-size: 1.0em;"> Ph.D. Student </span><br>
+<span style="font-weight: bold; font-size: 1.0em;"> PhD Student </span><br>
 <span style="font-weight: bold; font-size: 1.0em;"> 1/2024 - Present </span>
 <br style="clear:both" />
 <!-- Finished a person -->
