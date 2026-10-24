@@ -93,7 +93,108 @@ permalink: /gallery/
     height: auto;
     border-radius: 5%;
 }
+
+.class-photo-row {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 2em;
+}
+
+.class-photo {
+    flex-shrink: 0;
+    width: 50%;
+    height: auto;
+    border-radius: 1em;
+}
+
+@media (max-width: 700px) {
+    .class-photo-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .class-photo {
+        width: 100%;
+    }
+}
+
+.class-photo-row .chip-names {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.placeholder-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #aaa;
+    border-radius: 5%;
+    color: #888;
+    font-size: 0.9em;
+    text-align: center;
+    background: #f5f5f5;
+}
+
+.class-photo-placeholder {
+    flex-shrink: 0;
+    width: 400px;
+    height: 250px;
+}
+
+.chip-figure {
+    width: calc(25% - 0.75em);
+}
+
+.chip-figure .placeholder-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.chip-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 5%;
+}
+
+.chip-figure .chip-caption {
+    max-width: none;
+}
+
 </style>
+
+## 2026
+
+<div class="four-chip-gallery">
+    <div class="four-chip-header">
+        <div class="chip-title">ECE 628 - Spring 2026</div>
+        <div class="chip-description">CEMiD Supported Class Projects in TSMC 180nm CMOS</div>
+    </div>
+    <div class="class-photo-row">
+        <img src="/assets/images/chips/2026_ECE628/sp26_students_crop.jpg" class="class-photo">
+        <div class="chip-names">
+            Aera Jung, John Graham, Nicholas Boo, Milan Bukovics, Tristan Hall, Andrea Murillo, Ashtar Aggelopoulos, Guanchen Wu, Mandy Liao, Jharrell Sim, Yeunggyun Kwon, Cristian Milanes, Gordon Sheen, Calvin Lee, & Boris Murmann
+        </div>
+    </div>
+    <div class="four-chip-images">
+        <div class="chip-figure">
+            <img src="/assets/images/chips/2026_ECE628/sp26_26196.jpg">
+            <div class="chip-caption">CMOS Image Sensor and Analog Readout</div>
+        </div>
+        <div class="chip-figure">
+            <img src="/assets/images/chips/2026_ECE628/sp26_26197.jpg">
+            <div class="chip-caption">Potentiostat</div>
+        </div>
+        <div class="chip-figure">
+            <img src="/assets/images/chips/2026_ECE628/sp26_26198.jpg">
+            <div class="chip-caption">Class-D Audio Driver</div>
+        </div>
+        <div class="chip-figure">
+            <img src="/assets/images/chips/2026_ECE628/sp26_26199.jpg">
+            <div class="chip-caption">TIA for Heart-Rate and Pulse Oximeter Monitoring</div>
+        </div>
+    </div>
+</div>
 
 ## 2025
 
